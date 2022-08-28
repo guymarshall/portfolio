@@ -1,12 +1,12 @@
 <?php
 
-require 'page.php';
+require 'page.html';
 
 $content = '';
 
 $content .= '
 <div class="form-group container col-sm-4" id="inputFields">
-    <form action="collatz.php" method="GET">
+    <form action="collatz.html" method="GET">
         <input type="number" class="form-control" id="number" name="number" placeholder="Number:">
         <small id="collatzHelp" class="form-text text-muted">Please enter a positive integer</small>
         <input type="submit" value="Submit" class="btn btn-primary">

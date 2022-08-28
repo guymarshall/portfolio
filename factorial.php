@@ -1,12 +1,12 @@
 <?php
 
-require 'page.php';
+require 'page.html';
 
 $content = '';
 
 $content .= '
 <div class="form-group container col-sm-4" id="inputFields">
-    <form action="factorial.php" method="GET">
+    <form action="factorial.html" method="GET">
         <input type="number" class="form-control" id="number" name="number" placeholder="Number:">
         <small id="factorialHelp" class="form-text text-muted">Please enter a positive integer less than 171</small>
         <input type="submit" value="Submit" class="btn btn-primary">
