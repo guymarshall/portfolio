@@ -26,11 +26,8 @@ $(document).ready(() => {
   $('#calculateCollatz').on('click', () => {
     const number = $('#number').val();
     const result = collatz(number);
-    console.log(result);
-  });
-  $('#calculateCollatzAll').on('click', () => {
-    const number = $('#number').val();
-    const result = collatz(number);
-    console.log(result);
+    
+    $('#collatzStepsResult').text(`Number of steps: ${result['steps']}.`);
+    $('#collatzMaxResult').text(`Max number reached: ${result['max']}.`);
   });
 });
