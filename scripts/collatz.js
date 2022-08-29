@@ -1,6 +1,6 @@
 function collatz() {
   let steps = 0;
-  const number = document.getElementById('number');
+  let number = $('#number').val();
   let max = number;
 
   while (number > 1) {
@@ -22,26 +22,15 @@ function collatz() {
   };
 }
 
-function addTodo() {
-  let list = document.getElementById('todoList');
-  let todo = document.getElementById('todo').value;
-  let entry = document.createElement('li');
-  entry.appendChild(document.createTextNode(todo));
-  list.appendChild(entry);
-
-  let removeButton = document.createElement('input');
-  removeButton.setAttribute('type', 'button');
-  removeButton.setAttribute("value", "Remove");
-  removeButton.setAttribute("id", "removeButton");
-  removeButton.addEventListener('click', function(e) {
-    entry.parentNode.removeChild(entry);
-  }, false);
-  entry.appendChild(removeButton);
-
-  document.getElementById('todo').value = '';
-}
-
-function clearTodos() {
-  document.getElementById('todoList').innerHTML = '';
-  document.getElementById('todo').value = '';
-}
+$(document).ready(() => {
+  $('#calculateCollatz').on('click', () => {
+    const number = $('#number').val();
+    const result = collatz(number);
+    console.log(result);
+  });
+  $('#calculateCollatzAll').on('click', () => {
+    const number = $('#number').val();
+    const result = collatz(number);
+    console.log(result);
+  });
+});
