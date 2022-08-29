@@ -17,8 +17,8 @@ function collatz() {
   }
 
   return {
-    "steps": $steps,
-    "max": $max
+    "steps": steps,
+    "max": max
   };
 }
 
