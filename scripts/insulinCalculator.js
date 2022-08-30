@@ -1,33 +1,22 @@
-function collatz() {
-  let steps = 0;
-  let number = $('#number').val();
-  let max = number;
+function calculate_required_insulin() {
+  const carbsPer100 = $('#carbsPer100').val();
+  const gramsOnScale = $('gramsOnScale').val();
+  const insulinRatio = $('insulinRatio').val();
 
-  while (number > 1) {
-    if (number > max) {
-      max = number;
-    }    
-    if (number % 2 == 0) {
-      number = number / 2;
-      steps++;
-    } else {
-      number = (3 * number) + 1;
-      steps++;
-    }
-  }
-
+  const carbsPerGram = carbsPer100 / 100;
+  const totalGramsCarbs = carbsPerGram * gramsOnScale;
+  const insulinNeeded = (totalGramsCarbs / 10) * insulinRatio;
   return {
-    "steps": steps,
-    "max": max
+    "totalCarbs": totalGramsCarbs,
+    "insulinRequired": insulinNeeded
   };
 }
 
 $(document).ready(() => {
-  $('#calculateCollatz').on('click', () => {
-    const number = $('#number').val();
-    const result = collatz(number);
+  $('#calculateInsulin').on('click', () => {
+    const result = calculate_required_insulin();
     
-    $('#collatzStepsResult').text(`Number of steps: ${result['steps']}.`);
-    $('#collatzMaxResult').text(`Max number reached: ${result['max']}.`);
+    $('#carbsResult').text(`Total carbs: ${result.totalCarbs}.`);
+    $('#insulinResult').text(`Insulin required: ${result.insulinRequired}.`);
   });
 });
